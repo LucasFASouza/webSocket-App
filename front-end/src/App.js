@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     if (buttonStatus === true) {
-      const socket = io("localhost:5001/", {
+      const socket = io("localhost:8000/", {
         transports: ["websocket"],
         cors: {
           origin: "http://localhost:3000/",
@@ -51,10 +51,10 @@ function App() {
         <HttpCall />
       </div>
       {!buttonStatus ? (
-        <button onClick={handleClick}>turn chat on</button>
+        <button onClick={handleClick}>connect</button>
       ) : (
         <>
-          <button onClick={handleClick}>turn chat off</button>
+          <button onClick={handleClick}>disconnect</button>
           <div className="line">
             {!loading && <WebSocketCall socket={socketInstance} />}
           </div>
